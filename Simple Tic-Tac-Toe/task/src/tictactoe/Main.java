@@ -24,7 +24,7 @@ public class Main {
             Arrays.fill(row, ' ');
         draw_board(state);
         int currentplayer=0;
-        int[] nextMove = new int[2];
+        int[] nextMove;
         while(true){
             nextMove=checkinput(state);
             if (currentplayer==0){
@@ -40,11 +40,6 @@ public class Main {
             }
 
         }
-
-
-
-        
-
     }
     public static int checknumberPecas(char[][] state,char cell){
         int soma=0;
@@ -122,10 +117,10 @@ public class Main {
     }
     public static void draw_board(char[][] state){
         System.out.println("---------");
-        for(int y=0;y<state.length;y++){
+        for (char[] chars : state) {
             System.out.print("| ");
-            for(int x=0;x<state[y].length;x++){
-                System.out.print(state[y][x]);
+            for (char aChar : chars) {
+                System.out.print(aChar);
                 System.out.print(" ");
             }
             System.out.print("|\n");
@@ -190,7 +185,7 @@ public class Main {
         if(testerowX + testecolX + testediagX + testeantidiagX + testerowO +testecolO + testediagO + testeantidiagO==0){
             int teste_draw_or_notfinished= check_draw_or_notfinished(state);
             if(teste_draw_or_notfinished==0){
-
+                System.out.println("Not Finished");
             }
             else {
                 System.out.println("Draw");
